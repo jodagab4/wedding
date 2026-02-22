@@ -43,6 +43,15 @@ body {
     overflow: hidden;
     animation: ticket-float 5.5s ease-in-out infinite;
 }
+.ticket-soft-inner {
+    position: absolute;
+    inset: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(107,29,42,0.18);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+    pointer-events: none;
+    z-index: 2;
+}
 /* Marco doble tipo ticket */
 .ticket::before {
     content: "";
@@ -79,11 +88,13 @@ body {
     top: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    box-shadow: inset 0 -2px 0 rgba(255,255,255,0.85);
 }
 .ticket-edge.edge-bottom {
     bottom: 0;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.85);
 }
 
 /* LEFT SIDE */
@@ -148,7 +159,7 @@ body {
     top: 0;
     left: 0;
     font-size: 1.2rem;
-    offset-path: path("M20,160 C80,150 120,140 150,136 C130,132 118,118 126,104 C136,86 158,88 170,104 C182,118 172,134 150,136 C170,136 190,132 206,124 C214,120 222,114 230,106 C238,114 246,120 254,124 C270,132 290,136 310,136 C288,134 278,118 290,104 C302,88 324,86 334,104 C342,118 330,132 310,136 C328,138 348,146 370,155 C344,148 334,124 350,112 C368,98 392,106 398,128 C404,150 382,164 370,155 C358,146 342,138 328,138");
+    offset-path: path("M180,170 C128,134 94,112 94,82 C94,60 112,48 128,51 C142,54 154,66 180,90 C206,66 218,54 232,51 C248,48 266,60 266,82 C266,112 232,134 180,170 Z");
     offset-rotate: auto;
     animation: plane-follow 18s linear infinite;
 }
