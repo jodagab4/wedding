@@ -352,7 +352,8 @@ body {
 
 @media (max-width: 900px) {
     .ticket {
-        transform: none;
+        transform: rotate(-3deg);
+        animation: ticket-float 5.5s ease-in-out infinite;
         flex-direction: column;
         border-radius: 18px;
     }
@@ -402,6 +403,11 @@ body {
             transparent 6px 12px
         );
     }
+}
+
+@keyframes ticket-float-mobile {
+    0%, 100% { transform: rotate(-2.5deg) translateY(0); }
+    50% { transform: rotate(-1.8deg) translateY(-12px); }
 }
 
 @media (max-width: 600px) {
