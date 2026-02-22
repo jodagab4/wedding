@@ -1,0 +1,492 @@
+:root {
+    --burgundy: #6b1d2a;
+    --burgundy-dark: #3c0f18;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: 
+        linear-gradient(180deg, rgba(15,34,58,0.45) 0%, rgba(15,34,58,0.2) 260px, rgba(240,242,245,0.9) 260px),
+        url('https://www.shutterstock.com/image-photo/sunset-porthole-window-on-airplane-600nw-2578435047.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+.top-title {
+    text-align: center;
+    color: white;
+    font-size: 2.6rem;
+    letter-spacing: 4px;
+    padding: 60px 0 40px 0;
+    font-weight: 300;
+}
+
+.ticket-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 16px 40px;
+}
+
+.ticket {
+    position: relative;
+    display: flex;
+    width: min(950px, 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+    border-radius: 24px;
+    border: 0;
+    box-shadow: 
+        0 25px 50px rgba(0,0,0,0.25),
+        0 8px 15px rgba(0,0,0,0.1);
+    transform: rotate(-3deg);
+    overflow: hidden;
+    animation: ticket-float 5.5s ease-in-out infinite;
+}
+/* Marco doble tipo ticket */
+.ticket::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 18px;
+    border: 2px solid rgba(107,29,42,0.35);
+    z-index: 1;
+    pointer-events: none;
+    display: none;
+}
+
+.ticket::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border-radius: 12px;
+    border: 1px dashed rgba(107,29,42,0.35);
+    z-index: 1;
+    pointer-events: none;
+    display: none;
+}
+
+/* Filos superior e inferior estilo boarding pass */
+.ticket-edge {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22px;
+    background: var(--burgundy);
+    z-index: 2;
+}
+.ticket-edge.edge-top {
+    top: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.ticket-edge.edge-bottom {
+    bottom: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+/* LEFT SIDE */
+.ticket-left {
+    flex: 3;
+    padding: 30px 30px 30px 110px;
+    position: relative;
+    z-index: 2;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.boarding-label {
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.surprise {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    transform: rotate(-8deg);
+}
+
+.map-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg') center/cover;
+    opacity: 0.05;
+}
+
+.route {
+    position: absolute;
+    top: 24px;
+    left: 150px;
+    width: 360px;
+    height: 200px;
+}
+.route-path {
+    position: absolute;
+    inset: 0;
+}
+.route-dash {
+    fill: none;
+    stroke: var(--burgundy);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 6;
+    stroke-linecap: round;
+}
+
+.plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.2rem;
+    offset-path: path("M20,160 C80,150 120,140 150,136 C130,132 118,118 126,104 C136,86 158,88 170,104 C182,118 172,134 150,136 C170,136 190,132 206,124 C214,120 222,114 230,106 C238,114 246,120 254,124 C270,132 290,136 310,136 C288,134 278,118 290,104 C302,88 324,86 334,104 C342,118 330,132 310,136 C328,138 348,146 370,155 C344,148 334,124 350,112 C368,98 392,106 398,128 C404,150 382,164 370,155 C358,146 342,138 328,138");
+    offset-rotate: auto;
+    animation: plane-follow 18s linear infinite;
+}
+
+.ticket-info {
+    margin-top: 155px;
+    position: relative;
+    z-index: 2;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+.scale-list {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+/* Itinerario */
+.itinerary-section {
+    max-width: 980px;
+    margin: 0 auto 60px;
+    padding: 0 16px;
+}
+.itinerary-title {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--burgundy-dark);
+    text-align: center;
+    margin-bottom: 18px;
+}
+.itinerary-list {
+    display: grid;
+    gap: 10px;
+}
+.itinerary-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid rgba(107,29,42,0.2);
+    border-left: 6px solid var(--burgundy);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+.itinerary-time {
+    font-weight: 700;
+    color: var(--burgundy-dark);
+    font-size: 0.95rem;
+    text-align: right;
+}
+.itinerary-text {
+    font-size: 0.95rem;
+    color: #1f1f1f;
+}
+
+/* Mensaje de regalo */
+.gift-section {
+    max-width: 980px;
+    margin: 0 auto 70px;
+    padding: 0 16px;
+    text-align: center;
+}
+.gift-message {
+    font-size: 1.05rem;
+    color: #1f1f1f;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+.gift-details {
+    display: inline-grid;
+    gap: 6px;
+    padding: 14px 20px;
+    border: 1px solid rgba(107,29,42,0.25);
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+    color: var(--burgundy-dark);
+    font-weight: 600;
+}
+.gift-footer {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #1f1f1f;
+}
+.flight-heart {
+    color: #000000;
+    margin: 0 4px;
+    font-size: 0.95em;
+}
+
+/* Número de cuenta eliminado */
+
+/* RIGHT SIDE */
+.ticket-right {
+    flex: 1;
+    position: relative;
+    padding: 25px;
+    text-align: center;
+    z-index: 2;
+}
+
+.route-code {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.city-label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* ===== QR BLOCK ===== */
+.qr-block {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+.qr-image {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid rgba(107,29,42,0.25);
+    background: #ffffff;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+.qr-caption {
+    font-size: 0.85rem;
+    letter-spacing: 0.4px;
+    color: var(--burgundy-dark);
+    text-align: center;
+}
+
+/* Troqueles laterales eliminados */
+
+/* Línea perforada más real */
+.ticket-right::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(107,29,42,0.65) 0 6px,
+        transparent 6px 12px
+    );
+}
+
+/* Botón sonido */
+.sound-btn {
+    margin-top: 16px;
+    padding: 10px 14px;
+    border: 2px solid var(--burgundy);
+    background: #ffffff;
+    color: var(--burgundy);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sound-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.sound-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+@keyframes ticket-float {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(-2.2deg) translateY(-6px); }
+}
+
+@keyframes plane-follow {
+    0% { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticket,
+    .plane {
+        animation: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .ticket {
+        transform: none;
+        flex-direction: column;
+        border-radius: 18px;
+    }
+    .ticket-edge {
+        height: 14px;
+    }
+    .ticket-edge {
+        height: 14px;
+    }
+    .ticket-left {
+        padding: 22px 18px 14px 90px;
+    }
+    .ticket-right {
+        padding: 12px 20px 22px;
+    }
+    /* account-number eliminado */
+    .route {
+        top: 46px;
+        left: 70px;
+        width: 300px;
+        height: 180px;
+        transform: scale(0.85);
+        transform-origin: top left;
+    }
+    .ticket-info {
+        margin-top: 120px;
+    }
+    .route-code {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    .city-label {
+        font-size: 0.75rem;
+    }
+    .qr-image {
+        width: 140px;
+        height: 140px;
+    }
+    .ticket-right::before {
+        left: -2px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(107,29,42,0.65) 0 6px,
+            transparent 6px 12px
+        );
+    }
+}
+
+@media (max-width: 600px) {
+    .top-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        padding: 40px 0 24px;
+    }
+    .ticket-wrapper {
+        padding: 0 10px 32px;
+    }
+    .ticket-left {
+        padding: 18px 14px 8px 64px;
+    }
+    .boarding-label {
+        font-size: 0.78rem;
+    }
+    .surprise {
+        font-size: 1.45rem;
+    }
+    .row {
+        flex-direction: column;
+        gap: 6px;
+    }
+    .route {
+        top: 44px;
+        left: 52px;
+        width: 250px;
+        height: 150px;
+        transform: scale(0.78);
+    }
+    .ticket-info {
+        margin-top: 110px;
+    }
+    .route-code {
+        font-size: 1rem;
+    }
+    .city-label {
+        font-size: 0.65rem;
+    }
+    .qr-image {
+        width: 120px;
+        height: 120px;
+    }
+    .qr-caption {
+        font-size: 0.78rem;
+    }
+    .sound-btn {
+        width: 100%;
+    }
+    .itinerary-title {
+        font-size: 1.2rem;
+    }
+    .itinerary-item {
+        grid-template-columns: 1fr;
+    }
+    .itinerary-time {
+        text-align: left;
+    }
+    .gift-message {
+        font-size: 0.98rem;
+    }
+    .gift-details {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 420px) {
+    .ticket-left {
+        padding: 16px 12px 6px 56px;
+    }
+    /* account-number eliminado */
+    .route {
+        top: 38px;
+        left: 44px;
+        width: 230px;
+        height: 140px;
+        transform: scale(0.72);
+    }
+    .ticket-info {
+        margin-top: 102px;
+    }
+}
+
+.ticket-inner-border {
+    position: absolute;
+    inset: 8px;
+    border-radius: 16px;
+    border: 1px solid rgba(107,29,42,0.2);
+    pointer-events: none;
+    display: none;
+}

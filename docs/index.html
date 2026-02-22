@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boarding Pass Wedding</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-title">
+    WEEDING BOARDING PASS 
+</div>
+
+<section class="ticket-wrapper">
+
+    <div class="ticket">
+        <div class="ticket-inner-border"></div>
+        <div class="ticket-edge edge-top"></div>
+        <div class="ticket-edge edge-bottom"></div>
+
+        <div class="ticket-left">
+            <div class="ticket-header">
+                <span class="boarding-label">BOARDING PASS</span>
+                <span class="surprise">Surprise!</span>
+            </div>
+
+            <div class="map-overlay"></div>
+
+            <div class="route">
+                <svg class="route-path" viewBox="0 0 360 200" aria-hidden="true">
+                    <path class="route-dash"
+                          d="M20,160
+                             C80,150 120,140 150,136
+                             C130,132 118,118 126,104
+                             C136,86 158,88 170,104
+                             C182,118 172,134 150,136
+                             C170,136 190,132 206,124
+                             C214,120 222,114 230,106
+                             C238,114 246,120 254,124
+                             C270,132 290,136 310,136
+                             C288,134 278,118 290,104
+                             C302,88 324,86 334,104
+                             C342,118 330,132 310,136
+                             C328,138 348,146 370,155
+                             C344,148 334,124 350,112
+                             C368,98 392,106 398,128
+                             C404,150 382,164 370,155
+                             C358,146 342,138 328,138" />
+                </svg>
+                <div class="plane">&#9992;</div>
+            </div>
+
+            <div class="ticket-info">
+                <div class="row">
+                    <div><strong>NAME:</strong> <span id="bp-names">---</span></div>
+                    <div><strong>DATE:</strong> 25 JUL 2026</div>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <strong>DESTINATION:</strong>
+                        <ul class="scale-list">
+                            <li>Catedral de Latacunga</li>
+                            <li>Recepción en la Quinta Laigua</li>
+                        </ul>
+                    </div>
+                    <div><strong>TIME:</strong> 11:00 AM</div>
+                </div>
+
+                <div class="row">
+                    <div><strong>FLIGHT:</strong> WED<span class="flight-heart">♥</span>2026</div>
+                    <div><strong>SEAT:</strong> <span id="bp-seats">---</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ticket-right">
+
+            <div class="route-code">
+                <span id="bp-city-code">---</span> &#9992; LTGA
+            </div>
+
+            <div class="city-label">
+                <span id="bp-city">---</span> &nbsp;&nbsp;&nbsp; LATACUNGA
+            </div>
+
+            <a class="qr-block" href="https://www.google.com/maps/place/Quinta+Laigua/@-0.8548266,-78.6155957,17z/data=!4m14!1m7!3m6!1s0x91d45d689065b399:0xade83956397149b2!2sQuinta+Laigua!8m2!3d-0.854832!4d-78.6130208!16s%2Fg%2F11sphfwt4r!3m5!1s0x91d45d689065b399:0xade83956397149b2!8m2!3d-0.854832!4d-78.6130208!16s%2Fg%2F11sphfwt4r?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                <img class="qr-image" src="assets/Quinta_Laigua.png" alt="QR Cómo llegar a Quinta Laigua">
+                <div class="qr-caption">Cómo llegar a Quinta Laigua</div>
+            </a>
+
+            <button class="sound-btn" type="button" aria-label="Reproducir mensaje del capitán">
+                Mensaje del capitán
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="itinerary-section">
+    <div class="itinerary-title">Itinerario</div>
+    <div class="itinerary-list">
+        <div class="itinerary-item">
+            <div class="itinerary-time">10:30 AM</div>
+            <div class="itinerary-text">Llegada de invitados</div>
+        </div>
+        <div class="itinerary-item">
+            <div class="itinerary-time">11:00 AM</div>
+            <div class="itinerary-text">Ceremonia en la Catedral de Latacunga</div>
+        </div>
+        <div class="itinerary-item">
+            <div class="itinerary-time">01:00 PM</div>
+            <div class="itinerary-text">Recepción en la Quinta Laigua</div>
+        </div>
+        <div class="itinerary-item">
+            <div class="itinerary-time">02:00 PM</div>
+            <div class="itinerary-text">Brindis y fotos</div>
+        </div>
+        <div class="itinerary-item">
+            <div class="itinerary-time">03:00 PM</div>
+            <div class="itinerary-text">Almuerzo y celebración</div>
+        </div>
+    </div>
+</section>
+
+<section class="gift-section">
+    <div class="gift-message">
+        Tu presencia es nuestro mejor destino.<br>
+        Si deseas acompañarnos también con un detalle, puedes hacerlo a través de nuestra cuenta:
+    </div>
+    <div class="gift-details">
+        <div>✈ Banco: XXXX</div>
+        <div>🎟 Cuenta: 000000000</div>
+        <div>👰🤵 Titular: Jorge &amp; Caro</div>
+    </div>
+    <div class="gift-footer">
+        Gracias por ayudarnos a despegar hacia nuestra nueva aventura.
+    </div>
+</section>
+
+<script src="guestData.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
