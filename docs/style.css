@@ -137,6 +137,11 @@ body {
     stroke-dasharray: 6 6;
     stroke-linecap: round;
 }
+.plane-svg {
+    display: none;
+    font-size: 1.2rem;
+    fill: var(--burgundy-dark);
+}
 
 .plane {
     position: absolute;
@@ -490,3 +495,9 @@ body {
     pointer-events: none;
     display: none;
 }
+    .plane {
+        display: none;
+    }
+    .plane-svg {
+        display: block;
+    }
