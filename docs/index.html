@@ -31,6 +31,7 @@
             <div class="route">
                 <svg class="route-path" viewBox="0 0 360 200" aria-hidden="true">
                     <path class="route-dash"
+                          id="route-curve"
                           d="M20,160
                              C80,150 120,140 150,136
                              C130,132 118,118 126,104
@@ -48,6 +49,11 @@
                              C368,98 392,106 398,128
                              C404,150 382,164 370,155
                              C358,146 342,138 328,138" />
+                    <text class="plane-svg">✈
+                        <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
+                            <mpath href="#route-curve" />
+                        </animateMotion>
+                    </text>
                 </svg>
                 <div class="plane">&#9992;</div>
             </div>
